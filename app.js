@@ -10,11 +10,10 @@ const customTipamount = document.querySelector(".tip-buttons input");
 const bill = parseFloat(tipAmount.value);
 const persons = parseFloat(numberOfPersons.value);
 
-
-
 form.addEventListener("submit", (e)=>{
     e.preventDefault();
 })
+
 
 customTipamount.addEventListener("input", ()=>{  
   tipAmount.value = parseFloat(tipAmount.value);
@@ -27,10 +26,14 @@ customTipamount.addEventListener("input", ()=>{
 
 buttons.forEach((button)=>{
     button.addEventListener("click", ()=>{
-        button.classList.add("clicked");
+      buttons.forEach((button)=>{
+        button.classList.remove("clicked")
+      })
+      button.classList.add("clicked")
+        
         const tipPercentage = parseFloat(button.innerText) / 100;  
         const bill = parseFloat(tipAmount.value);
-        console.log(bill)
+        
         //to check if a number is inputed
         if (isNaN(bill) || bill < 1) {
           tipPerson.textContent = "$0.00";
@@ -58,5 +61,11 @@ reset.addEventListener("click", ()=>{
   tipAmount.value = "";  
   numberOfPersons.value = "";
   customTipamount.value = "";  
+  buttons.forEach((button)=>{
+    button.classList.remove("clicked");
+  })
+    
 })
+
+
 
