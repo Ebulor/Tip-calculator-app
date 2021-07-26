@@ -17,7 +17,7 @@
   --SoftRed: hsl(0, 94%, 66%);
 }
 main {
-  background-color: var(--DarkCyan);
+  background-color: var(--Lightgrayishcyan);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -234,4 +234,5 @@ main {
     width: 60%;
   }
 }
+
 
