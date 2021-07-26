@@ -7,6 +7,7 @@
 :root {
   --Strongcyan: hsl(172, 67%, 45%);
   --Cyan: hsl(172, 70%, 59%);
+  --DarkCyan: hsl(172, 57%, 50%);
   --Verydarkcyan: hsl(183, 100%, 15%);
   --Darkgrayishcyan: hsl(186, 14%, 43%);
   --Darkgrayishcyan2: hsl(184, 14%, 56%);
@@ -16,7 +17,7 @@
   --SoftRed: hsl(0, 94%, 66%);
 }
 main {
-  background-color: var(--Lightgrayishcyan);
+  background-color: var(--DarkCyan);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -39,6 +40,7 @@ main {
   width: 80%;
   display: flex;
   flex-direction: column;
+  padding-top: 50px;
 }
 .amount,
 .people {
@@ -109,7 +111,7 @@ main {
   grid-gap: 1rem;
   grid-template-columns: repeat(2, minmax(120px, 1fr));
 }
-.tip-buttons button {
+.tip-button {
   background-color: var(--Verydarkcyan);
   outline: none;
   border: 1px solid transparent;
@@ -120,8 +122,13 @@ main {
   color: var(--White);
   cursor: pointer;
 }
-.tip-buttons.clicked {
-  background-color: black;
+.clicked {
+  background-color: var(--DarkCyan);
+  color: var(--Verydarkcyan);
+}
+.tip-button:hover {
+  background-color: var(--Cyan);
+  color: var(--Verydarkcyan);
 }
 .tip-buttons input {
   outline: none;
@@ -137,10 +144,6 @@ main {
 }
 .tip-buttons input::placeholder {
   font-size: 2rem;
-  color: var(--Verydarkcyan);
-}
-.tip-buttons button:hover {
-  background-color: var(--Cyan);
   color: var(--Verydarkcyan);
 }
 .card-right {
@@ -204,6 +207,9 @@ main {
     align-items: center;
     justify-content: space-around;
   }
+  .card-left {
+    padding-top: 0;
+  }
   .card-left,
   .card-right {
     width: 45%;
@@ -228,3 +234,4 @@ main {
     width: 60%;
   }
 }
+
