@@ -1,0 +1,230 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Space Mono", monospace;
+}
+:root {
+  --Strongcyan: hsl(172, 67%, 45%);
+  --Cyan: hsl(172, 70%, 59%);
+  --Verydarkcyan: hsl(183, 100%, 15%);
+  --Darkgrayishcyan: hsl(186, 14%, 43%);
+  --Darkgrayishcyan2: hsl(184, 14%, 56%);
+  --Lightgrayishcyan: hsl(185, 41%, 84%);
+  --Lightgrayishcyan2: hsl(189, 41%, 97%);
+  --White: hsl(0, 0%, 100%);
+  --SoftRed: hsl(0, 94%, 66%);
+}
+main {
+  background-color: var(--Lightgrayishcyan);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.heading {
+  padding: 40px 0;
+}
+.calculator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--White);
+  width: 100%;
+  border-radius: 20px;
+}
+.card-left {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+.amount,
+.people {
+  position: relative;
+}
+.amount input,
+.people input {
+  text-align: right;
+  outline: none;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  width: 100%;
+  height: 40px;
+  padding: 0px 15px;
+  background-color: var(--Lightgrayishcyan2);
+  color: var(--Verydarkcyan);
+  font-weight: 700;
+  font-size: 2rem;
+}
+.error input {
+  border: 2px solid var(--SoftRed);
+  display: block;
+}
+.amount input::placeholder,
+.people input::placeholder {
+  color: var(--Darkgrayishcyan);
+}
+.card-left p {
+  margin-bottom: 10px;
+  color: var(--Darkgrayishcyan);
+  font-weight: 700;
+  font-size: 1rem;
+}
+.people p {
+  display: flex;
+  justify-content: space-between;
+}
+.people p span {
+  display: none;
+}
+.error p span {
+  color: var(--SoftRed);
+  display: block;
+}
+.dollar::after {
+  content: url(images/icon-dollar.svg);
+  width: 2%;
+  height: 100%;
+  position: absolute;
+  left: 5%;
+  top: 61%;
+  z-index: 100;
+}
+.profile::after {
+  content: url(images/icon-person.svg);
+  width: 2%;
+  height: 100%;
+  position: absolute;
+  left: 5%;
+  top: 61%;
+  z-index: 100;
+}
+.tip-container {
+  padding: 30px 0;
+}
+.tip-buttons {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(2, minmax(120px, 1fr));
+}
+.tip-buttons button {
+  background-color: var(--Verydarkcyan);
+  outline: none;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  height: 50px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--White);
+  cursor: pointer;
+}
+.tip-buttons.clicked {
+  background-color: black;
+}
+.tip-buttons input {
+  outline: none;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  height: 50px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--Verydarkcyan);
+  background-color: var(--Lightgrayishcyan2);
+  text-align: right;
+  padding: 0 5px;
+}
+.tip-buttons input::placeholder {
+  font-size: 2rem;
+  color: var(--Verydarkcyan);
+}
+.tip-buttons button:hover {
+  background-color: var(--Cyan);
+  color: var(--Verydarkcyan);
+}
+.card-right {
+  background-color: var(--Verydarkcyan);
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  margin: 30px 0;
+  padding: 20px 0;
+}
+.per-person,
+.tip-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+}
+.per-person p,
+.tip-total p {
+  display: flex;
+  flex-direction: column;
+  color: var(--White);
+  font-weight: 700;
+}
+.per-person span,
+.tip-total span {
+  color: var(--Lightgrayishcyan);
+  font-weight: 400;
+  font-size: 13px;
+}
+.output {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--Strongcyan);
+  padding: 20px 0;
+}
+.card-right button {
+  width: 80%;
+  height: 40px;
+  outline: none;
+  border: 1px solid transparent;
+  background-color: var(--Strongcyan);
+  color: var(--Verydarkcyan);
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: auto;
+}
+.card-right button:hover {
+  background-color: var(--Cyan);
+}
+@media (min-width: 800px) {
+  .calculator {
+    flex-direction: row;
+    width: 80%;
+    height: 70vh;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .card-left,
+  .card-right {
+    width: 45%;
+    align-items: center;
+    height: 80%;
+  }
+  .tip-container,
+  .amount,
+  .people {
+    width: 100%;
+  }
+  .tip-buttons {
+    grid-gap: 1rem;
+    grid-template-columns: repeat(3, minmax(80px, 1fr));
+  }
+  .tip-buttons input::placeholder {
+    font-size: 1.3rem;
+  }
+}
+@media (min-width: 1100px) {
+  .calculator {
+    width: 60%;
+  }
+}
